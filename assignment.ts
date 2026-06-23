@@ -1,25 +1,24 @@
-
-function isLegal(user:User):boolean{
-    if(user.age>18){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-interface User{
-    firstName : string;
-    lastName : string;
-    email : string;
+interface Person{
+    name : string;
     age : number;
+    greet(phrase:string) : void;
 }
 
-const user:User = {
-    firstName : "karishma",
-    lastName : "kasilingam",
-    email : "karishma.7022@gmail.com",
-    age : 25
+class Manager implements Person{
+    name : string;
+    age : number;
+    teamSize:number;
+
+    constructor(n:string,a:number,size:number){
+        this.name = n;
+        this.age = a;
+        this.teamSize = size;
+    }
+
+    greet(phrase:string):void{
+        console.log(`${phrase} ${this.name}, manager of ${this.teamSize} people`);
+    }
 }
 
-console.log(isLegal(user));
+const manager = new Manager("Karishma",25,1000);
+manager.greet("Hello");

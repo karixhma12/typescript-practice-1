@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function isLegal(user) {
-    if (user.age > 18) {
-        return true;
+class Manager {
+    name;
+    age;
+    teamSize;
+    constructor(n, a, size) {
+        this.name = n;
+        this.age = a;
+        this.teamSize = size;
     }
-    else {
-        return false;
+    greet(phrase) {
+        console.log(`${phrase} ${this.name}, manager of ${this.teamSize} people`);
     }
 }
-const user = {
-    firstName: "karishma",
-    lastName: "kasilingam",
-    email: "karishma.7022@gmail.com",
-    age: 25
-};
-console.log(isLegal(user));
+const manager = new Manager("Karishma", 25, 1000);
+manager.greet("Hello");
 //# sourceMappingURL=assignment.js.map
